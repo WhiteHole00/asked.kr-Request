@@ -65,7 +65,7 @@ func main() {
 
 	defer req.Body.Close()
 
-	reqBody, erro := ioutil.ReadAll(req.Body) //리스폰 
+	reqBody, erro := ioutil.ReadAll(req.Body) //리스폰 체크
 
 	if erro == nil {
 		check := string(reqBody)
