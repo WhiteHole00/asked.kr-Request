@@ -43,7 +43,7 @@ func main() {
 		"reg_ids":   {ID},
 		"reg_pw":    {PW}}
 
-	var BaseURL string = "https://asked.kr/simple_join.php"
+	var BaseURL string = "https://asked.kr/sing_ups.php"
 
 	res, er := http.Get(BaseURL)
 
@@ -54,7 +54,7 @@ func main() {
 
 	fmt.Println(res.StatusCode)
 
-	req, err := http.PostForm(BaseURL, data)
+	req, err := http.PostForm("https://asked.kr/sing_ups.php", data)
 
 	req.Header.Add("X-Requested-With", "XMLHttpRequest")
 
@@ -65,7 +65,7 @@ func main() {
 
 	defer req.Body.Close()
 
-	reqBody, erro := ioutil.ReadAll(req.Body) 
+	reqBody, erro := ioutil.ReadAll(req.Body) //리스폰 
 
 	if erro == nil {
 		check := string(reqBody)
